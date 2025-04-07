@@ -39,10 +39,16 @@ export const protectedProcedure = t.procedure.use(async function isAuthed(opts){
     if(!ctx.clerkUserId){
         throw new TRPCError({code:"UNAUTHORIZED"});
     }
-    const[user] = await db.select().from(users).where(eq(users.clerkId,ctx.clerkUserId)).limit(1);
-    if(!user){
-       throw new TRPCError({code:"UNAUTHORIZED"}); 
-    }
+    let [user] = await db.select().from(users).where(eq(users.clerkId,ctx.clerkUserId)).limit(1);
+    if (!user) {
+        const inserted = await db.insert(users).values({
+          clerkId: ctx.clerkUserId,
+          name: "Test User",
+          imageUrl: "https://example.com/default.jpg"
+        }).returning();
+        user = inserted[0];
+      }
+      
 
     const {success} = await ratelimit.limit(user.id);
     if(!success){
