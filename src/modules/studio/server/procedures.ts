@@ -24,6 +24,7 @@ export const studioRouter = createTRPCRouter({
                 code:"NOT_FOUND"
             });
         }
+        return video;
     }),
     getMany:protectedProcedure
     .input(z.object({
@@ -67,6 +68,7 @@ export const studioRouter = createTRPCRouter({
         return {
             items,
             nextCursor,
+            
         };
     }),
 });
