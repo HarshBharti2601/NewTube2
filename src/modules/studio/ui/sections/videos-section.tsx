@@ -15,7 +15,7 @@ import {
     TableRow,
 } from "@/components/ui/table";
 import Link from "next/link";
-import { VideoThumbnail } from "@/modules/videos/server/ui/components/video-thumbnail";
+import { VideoThumbnail } from "@/modules/videos/ui/components/video-thumbnail";
 import { snakeCaseToTitle } from "@/lib/utils";
 import { Globe2Icon, LockIcon } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";

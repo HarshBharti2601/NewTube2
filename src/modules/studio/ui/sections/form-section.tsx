@@ -37,7 +37,7 @@ import { CopyCheckIcon, CopyIcon, Globe2Icon, ImagePlusIcon, Loader2Icon, LockIc
 import { z } from "zod";
 import { videoUpdateSchema } from "@/db/schema";
 import { toast } from "sonner";
-import { VideoPlayer } from "@/modules/videos/server/ui/components/video-player";
+import { VideoPlayer } from "@/modules/videos/ui/components/video-player";
 import Link from "next/link";
 import { snakeCaseToTitle } from "@/lib/utils";
 import { useRouter } from "next/navigation";
